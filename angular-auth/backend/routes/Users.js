@@ -35,13 +35,13 @@ users.post('/register', (req, res) => {
             let token = jwt.sign(payload, process.env.SECRET_KEY, {
               expiresIn: 1440
             })
-            res.json({ token: token })
+            return res.json({ token: token })
           })
           .catch(err => {
             res.send('error: ' + err)
           })
       } else {
-        res.json({ error: 'User already exists' })
+        return res.json({ error: 'User already exists' })
       }
     })
     .catch(err => {
@@ -51,12 +51,12 @@ users.post('/register', (req, res) => {
 
 users.post('/login', (req, res) => {
   User.findOne({
-    password : req.body.password,
-    email: req.body.email   
+    password: req.body.password,
+    email: req.body.email
   })
     .then(user => {
-        
-      if(user) {
+
+      if (user) {
         const payload = {
           _id: user._id,
           first_name: user.first_name,

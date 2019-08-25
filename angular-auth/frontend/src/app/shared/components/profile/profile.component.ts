@@ -7,7 +7,7 @@ import { AuthenticationService, UserDetails  } from '../../../services/authentic
 export class ProfileComponent {
   details: UserDetails
 
-  constructor(private auth: AuthenticationService) {}
+  constructor(public auth: AuthenticationService) {}
 
   ngOnInit() {
     this.auth.profile().subscribe(

@@ -6,7 +6,8 @@ import { Router } from '@angular/router'
   templateUrl: './login.component.html'
 })
 export class LoginComponent {
-  validInput = false;
+  validInputWrong = false;
+  validInputEmpty = false;
   credentials: TokenPayload = {
     _id: '',
     first_name: '',
@@ -23,15 +24,17 @@ export class LoginComponent {
       this.auth.login(this.credentials).subscribe(result => {
       
         if(result['error'] === 'User does not exist') {
-          this.validInput = true;      
+          this.validInputWrong = true;      
         } else {
-          this.validInput = false;   
+          this.validInputWrong = false;   
           this.router.navigateByUrl('/profile')
         }
          
       }, error => {
         console.log('error is ', error);
       });
+    }else{
+      this.validInputEmpty = true;
     }
   }
 }

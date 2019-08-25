@@ -24,8 +24,9 @@
               </div>
               <div class="form-group row">
                 <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="email" class="form-control form-control-user" name="email" placeholder="Enter email"
+                    <input type="email" required class="form-control form-control-user" name="email" placeholder="Enter email"
                     [(ngModel)]="credentials.email">
+                    <p *ngIf="validInputEmail" class="text-danger mt-2 small">Email already exists!</p>
                 </div>
                 <div class="col-sm-6">
                     <input type="password" class="form-control form-control-user" name="password" placeholder="Password"
@@ -33,6 +34,9 @@
                 </div>
               </div>
               <button type="submit" class="btn btn-primary btn-user btn-block">Register Account</button>
+              <div>
+                <p *ngIf="validInputEmpty" class="text-danger mt-2 small">Please enter all required field!</p>
+              </div>
             </form>
             <hr>
             <div class="text-center">

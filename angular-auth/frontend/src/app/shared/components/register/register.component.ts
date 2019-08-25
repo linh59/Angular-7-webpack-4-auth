@@ -6,6 +6,8 @@ import { Router } from '@angular/router'
   templateUrl: './register.component.html'
 })
 export class RegisterComponent {
+  validInputEmail = false;
+  validInputEmpty = false;
   credentials: TokenPayload = {
     _id: '',
     first_name: '',
@@ -17,13 +19,27 @@ export class RegisterComponent {
   constructor(private auth: AuthenticationService, private router: Router) {}
 
   register() {
-    this.auth.register(this.credentials).subscribe(
-      () => {
-        this.router.navigateByUrl('/profile')
-      },
-      err => {
-        console.error(err)
-      }
-    )
+    if(this.credentials.email && this.credentials.password && this.credentials.first_name && this.credentials.last_name) {
+      
+      this.validInputEmpty = false;
+
+      this.auth.register(this.credentials).subscribe(result => {
+      
+        if(result['error'] === 'User already exists') {
+          this.validInputEmail = true;
+  
+        } else {
+          this.validInputEmail = false;
+          this.router.navigateByUrl('/profile')
+        }
+         
+      }, error => {
+        console.log('error is ', error);
+      });
+    }else{
+      this.validInputEmpty = true;
+    }
+
+
   }
 }
