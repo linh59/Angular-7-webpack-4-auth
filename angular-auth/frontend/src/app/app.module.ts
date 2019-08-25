@@ -11,7 +11,8 @@ import { ProfileComponent } from './shared/components/profile/profile.component'
 import { RegisterComponent } from './shared/components/register/register.component';
 import { AuthenticationService } from './services/authentication.service';
 import { AuthGuardService } from './services/auth-guard.service';
-import '../assets/sb-admin-2.min';
+
+import '../assets/scss/global';
 
 @NgModule({
     declarations: [

@@ -1,9 +1,9 @@
 
-<div class="container">
+<!-- <div class="container">
 
   <div class="card o-hidden border-0 shadow-lg my-5">
     <div class="card-body p-0">
-      <!-- Nested Row within Card Body -->
+
       <div class="row">
         <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
         <div class="col-lg-7">
@@ -41,6 +41,64 @@
             <hr>
             <div class="text-center">
               <a class="small" routerLink="/login">Already have an account? Login!</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="main-container signup-page">
+    <div class="main-content-wrap">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-7 col-md-6 col-sm-12 col-xs-12 registration-slider">
+            <div class="right">
+              <div class="slider">
+                <img src="https://www.upteamist.com/imgs/splash/splash@2x.png" alt="" />
+                <h4 class="welcome">Welcome!</h4>
+                <h4 class="get-a-real-intranet">Authentication Project</h4>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12 registration-login">
+            <div class="left left-account">
+              <form  (submit)="register()">
+                  <div class="form-group">
+                      <div class="log-in">Create an account</div>
+                      <div class="group-login">
+                          <input type="text" class="box-login" name="first_name"
+                          placeholder="Enter your first name" [(ngModel)]="credentials.first_name">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="group-login">
+                          <input type="text" class="box-login" name="last_name" placeholder="Enter your last name"
+                          [(ngModel)]="credentials.last_name">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="group-login">
+                          <input type="email" class="box-login" name="email" placeholder="Enter email"
+                          [(ngModel)]="credentials.email">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="group-login">
+                          <input type="password" class="box-login" name="password" placeholder="Password"
+                          [(ngModel)]="credentials.password">
+                      </div>
+                    </div>
+                    <div class="checkbox-signin">
+                      <button type="submit" class="box-signin">Sign up</button>               
+                      <a routerLink="/login" ng-click="onCreateAccount = false" class=" content-rememberpass member">Already a member?</a>
+                    </div>
+                    <div class="group-login error">
+                      <p *ngIf="validInputEmail" class="word-error">Email already exists!</p>
+                      <p *ngIf="validInputEmpty" class="word-error">Please enter all required field!</p>
+                    </div>
+              </form>
             </div>
           </div>
         </div>

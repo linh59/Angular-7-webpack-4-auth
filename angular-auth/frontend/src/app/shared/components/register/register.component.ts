@@ -19,6 +19,7 @@ export class RegisterComponent {
   constructor(private auth: AuthenticationService, private router: Router) {}
 
   register() {
+
     if(this.credentials.email && this.credentials.password && this.credentials.first_name && this.credentials.last_name) {
       
       this.validInputEmpty = false;
@@ -36,6 +37,7 @@ export class RegisterComponent {
       }, error => {
         console.log('error is ', error);
       });
+      
     }else{
       this.validInputEmpty = true;
     }

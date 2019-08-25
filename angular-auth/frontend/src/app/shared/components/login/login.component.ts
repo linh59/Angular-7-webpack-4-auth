@@ -20,7 +20,8 @@ export class LoginComponent {
 
   login() {
     if(this.credentials.email && this.credentials.password) {
-      
+
+      this.validInputEmpty = false;
       this.auth.login(this.credentials).subscribe(result => {
       
         if(result['error'] === 'User does not exist') {
@@ -35,6 +36,7 @@ export class LoginComponent {
       });
     }else{
       this.validInputEmpty = true;
+      this.validInputWrong = false;      
     }
   }
 }

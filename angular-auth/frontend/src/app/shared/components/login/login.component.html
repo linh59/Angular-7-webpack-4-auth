@@ -1,45 +1,96 @@
+<!-- <div class="container">
 
-  <div class="container">
+  <div class="row justify-content-center">
 
-      <!-- Outer Row -->
-      <div class="row justify-content-center">
-  
-        <div class="col-xl-10 col-lg-12 col-md-9">
-  
-          <div class="card o-hidden border-0 shadow-lg my-5">
-            <div class="card-body p-0">
-              <!-- Nested Row within Card Body -->
-              <div class="row">
-                <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
-                <div class="col-lg-6">
-                  <div class="p-5">
-                    <div class="text-center">
-                      <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
-                    </div>
-                    <form class="user" (submit)="login()">
-                      <div class="form-group">       
-                        <input type="email" class="form-control form-control-user" name="email" placeholder="Enter email" [(ngModel)]="credentials.email">
-                      </div>
-                      <div class="form-group">
-                          <input type="password" class="form-control form-control-user" name="password" placeholder="Password" [(ngModel)]="credentials.password">
-                      </div>
-                      <button type="submit" class="btn btn-primary btn-user btn-block">Sign in</button>
-                      <div>
-                        <p *ngIf="validInputWrong" class="text-danger mt-2 small">Wrong username or password!</p>
-                        <p *ngIf="validInputEmpty" class="text-danger mt-2 small">Please enter email and password!</p>
-                      </div>
-                    </form>
-                    <hr>
+    <div class="col-xl-10 col-lg-12 col-md-9">
 
-                    <div class="text-center">
-                      <a class="small" routerLink="/register">Create an Account!</a>
-                    </div>
+      <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+          <div class="row">
+            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+            <div class="col-lg-6">
+              <div class="p-5">
+                <div class="text-center">
+                  <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                </div>
+                <form class="user" (submit)="login()">
+                  <div class="form-group">
+                    <input type="email" class="form-control form-control-user" name="email" placeholder="Enter email"
+                      [(ngModel)]="credentials.email">
                   </div>
+                  <div class="form-group">
+                    <input type="password" class="form-control form-control-user" name="password" placeholder="Password"
+                      [(ngModel)]="credentials.password">
+                  </div>
+                  <button type="submit" class="btn btn-primary btn-user btn-block">Sign in</button>
+                  <div>
+                    <p *ngIf="validInputWrong" class="text-danger mt-2 small">Wrong username or password!</p>
+                    <p *ngIf="validInputEmpty" class="text-danger mt-2 small">Please enter email and password!</p>
+                  </div>
+                </form>
+                <hr>
+
+                <div class="text-center">
+                  <a class="small" routerLink="/register">Create an Account!</a>
                 </div>
               </div>
             </div>
           </div>
-  
         </div>
-  
       </div>
+
+    </div>
+
+  </div>
+</div> -->
+
+<div class="main-container signup-page">
+  <div class="main-content-wrap">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7 col-md-6 col-sm-12 col-xs-12 registration-slider">
+          <div class="right">
+            <div class="slider">
+              <img src="https://www.upteamist.com/imgs/splash/splash@2x.png" alt="" />
+              <h4 class="welcome">Welcome!</h4>
+              <h4 class="get-a-real-intranet">Authentication Project</h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12 registration-login">
+          <div class="left left-login">
+            <form (submit)="login()">
+              <div class=" form-group">
+                <div class="log-in">Log In</div>
+                <div>
+                  <label class="dont-have-an-accoun">Don't have an account?</label>
+                  <a routerLink="/register" class="create-an-account">Create an account</a>
+                </div>
+                <div>
+                  <label class="it-will-take-less-th">It will take less than a minute</label>
+                </div>
+                <div class="group-login">
+                  <input type="email" class="box-login" name="email" placeholder="Enter email"
+                    [(ngModel)]="credentials.email">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="group-login">
+                  <input type="password" class="box-login" name="password" placeholder="Password"
+                    [(ngModel)]="credentials.password">
+                </div>
+              </div>
+              <div class="checkbox-signin">
+                <button type="submit" class="box-signin">Sign in</button>
+              </div>
+              <div class="group-login error">
+                <p *ngIf="validInputWrong" class="word-error">Wrong username or password!</p>
+                <p *ngIf="validInputEmpty" class="word-error">Please enter email and password!</p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
